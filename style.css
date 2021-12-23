@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;0,700;1,100;1,300;1,400&display=swap');
 
+:root {
+    --overlay-color:blue;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -19,6 +23,11 @@
     background: black;
     color: burlywood;
     z-index: 2;
+    transition: 0.5s;
+}
+
+.showcase.active {
+    right: 300px;
 }
 
 .showcase header {
@@ -71,7 +80,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:rgb(102, 177, 204);
+    background: var(--overlay-color);
     mix-blend-mode: overlay;
 
 }
@@ -123,4 +132,70 @@
     letter-spacing: 3px;
 }
 
-.social
+.social {
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social li {
+    list-style: none;
+}
+
+.social li a {
+    display: inline-block;
+    filter: invert(1);
+    margin-right: 20px;
+    transform: scale(0.5);
+    transition: 0.5s;
+    height: 15px;
+    width: 15px;
+}
+
+.social li a:hover{
+    transform: scale(0.5) translateY(-15px);
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0%;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu ul {
+    position: relative;
+    list-style: none;
+} 
+
+.menu ul li a {
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+}
+
+.menu ul li a:hover {
+    color: var(--overlay-color);
+}
+
+@media(max-width:750px){
+    .showcase, .showcase header{
+        padding: 48px;
+    }
+}
+
+.text h2 {
+    font-size: 3em;
+}
+
+.text h3 {
+    font-size: 2em;
+}
+
